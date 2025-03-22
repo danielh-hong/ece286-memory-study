@@ -1,0 +1,115 @@
+/* src/pages/Results.module.css */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--bg-color);
+}
+
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+}
+
+.participantInfo {
+  margin-bottom: 25px;
+}
+
+.participantInfo h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.infoItem {
+  display: flex;
+}
+
+.label {
+  font-weight: 500;
+  min-width: 100px;
+  color: var(--text-muted-color);
+}
+
+.value {
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.resultsSummary {
+  margin-bottom: 25px;
+}
+
+.resultsSummary h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--highlight-bg-color);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  justify-content: flex-end;
+}
+
+.viewAllButton,
+.homeButton {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.homeButton {
+  background-color: var(--primary-color);
+}
+
+.viewAllButton:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.homeButton:hover {
+  background-color: var(--primary-hover-color);
+}

@@ -1,0 +1,234 @@
+/* src/pages/CalibrationPage.module.css */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.stats {
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--card-bg-color);
+  padding: 8px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.level,
+.lives,
+.mistakes {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+.instructions {
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+}
+
+.instructions h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.instructions p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.instructions ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.gridContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 80vh;
+  height: 80vh;
+  max-width: 90vw;
+  max-height: 90vw;
+}
+
+.grid {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--border-color);
+  padding: 6px;
+  border-radius: 8px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.cell {
+  background-color: var(--cell-bg-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: none;
+  border: 3px solid var(--border-color);
+  aspect-ratio: 1 / 1;
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+}
+
+.lit {
+  background-color: #ffffff !important; /* White for monochrome */
+  border-color: #000000; /* Black border */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.correct {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 3px solid #000000;
+}
+
+.wrong {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  border: 3px solid #000000;
+  position: relative;
+}
+
+.wrong:before,
+.wrong:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 4px;
+  background-color: #000000;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.wrong:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+}
+
+.complete {
+  background-color: var(--card-bg-color);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.complete h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.complete p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.resultLevel {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 30px 0;
+  padding: 15px;
+  background-color: var(--highlight-bg-color);
+  border-radius: 6px;
+  color: var(--primary-color);
+}
+
+.countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  z-index: 100;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+.getReady {
+  position: absolute;
+  top: calc(50% - 120px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+@media (max-width: 600px) {
+  .stats {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .countdown {
+    font-size: 6rem;
+  }
+  
+  .getReady {
+    font-size: 1.5rem;
+    top: calc(50% - 80px);
+  }
+}

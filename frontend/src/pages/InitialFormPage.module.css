@@ -1,0 +1,174 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--bg-color);
+  position: relative;
+}
+
+.navLinks {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.navLink {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.navLink:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.stats {
+  background-color: var(--highlight-bg-color);
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.stats p {
+  margin: 8px 0;
+}
+
+.recommendation {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recommendButton {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.recommendButton:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.consentText {
+  background-color: var(--highlight-bg-color);
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.consentText h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.consentText p {
+  margin: 8px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-weight: 500;
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.customInput {
+  margin-top: 8px;
+  border-color: var(--primary-color) !important;
+}
+
+.currentMode {
+  background-color: var(--highlight-bg-color);
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.currentMode p {
+  margin: 5px 0;
+}
+
+.submitButton {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+  background-color: var(--primary-hover-color);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+  
+  .navLinks {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 20px;
+    align-self: flex-start;
+  }
+}

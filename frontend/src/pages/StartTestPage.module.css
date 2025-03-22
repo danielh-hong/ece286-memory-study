@@ -1,0 +1,161 @@
+/* src/pages/StartTestPage.module.css */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--bg-color);
+}
+
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  width: 100%;
+  max-width: 700px;
+  padding: 30px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+}
+
+.calibrationInfo {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: var(--highlight-bg-color);
+  border-radius: 6px;
+}
+
+.calibrationInfo h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.testSettings {
+  margin-bottom: 25px;
+}
+
+.testSettings h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.settingGroup {
+  margin-bottom: 20px;
+}
+
+.settingGroup label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.levelInputGroup {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.levelSlider {
+  flex: 1;
+  height: 8px;
+}
+
+.levelInput {
+  width: 60px;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.levelNote {
+  margin-top: 8px;
+  min-height: 20px;
+}
+
+.warningNote {
+  color: var(--warning-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.modeToggleContainer {
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.modeOption {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modeOption:first-child {
+  border-right: 1px solid var(--border-color);
+}
+
+.activeMode {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  cursor: default;
+}
+
+.testInstructions {
+  background-color: var(--highlight-bg-color);
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+}
+
+.testInstructions h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.testInstructions ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.testInstructions li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.startButton {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.startButton:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 20px;
+  }
+}

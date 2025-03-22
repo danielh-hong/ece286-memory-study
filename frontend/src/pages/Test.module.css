@@ -1,0 +1,249 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 20px 0 20px;
+  background-color: var(--bg-color);
+  overflow: hidden; 
+}
+
+.header {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.testInfo {
+  background-color: var(--card-bg-color);
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.testInfo h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.phaseInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.conditionInfo,
+.roundInfo {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.colorMode {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.monoMode {
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.gridContainer {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 80vh;
+  height: 80vh;
+  max-width: 90vw;
+  max-height: 90vw;
+}
+
+.grid {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--border-color);
+  padding: 6px;
+  border-radius: 8px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.cell {
+  border: 3px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--cell-bg-color);
+  cursor: pointer;
+  transition: none;
+  aspect-ratio: 1 / 1;
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+}
+
+/* Lit cell styling */
+.lit {
+  border-color: #000000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Correct cell styling - works in both modes */
+.correct {
+  border: 3px solid var(--text-color) !important;
+}
+
+/* Wrong cell styling */
+.wrong {
+  opacity: 0.7;
+  position: relative;
+}
+
+/* X mark for wrong selections */
+.wrong:before, 
+.wrong:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 3px;
+  background-color: var(--text-color);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.wrong:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.breakContainer {
+  background-color: var(--card-bg-color);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.breakContainer h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.breakContainer p {
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.breakTimer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.timerDisplay {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.skipButton {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.skipButton:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.nextModeInfo {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.completeMessage {
+  background-color: var(--card-bg-color);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.completeMessage h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--success-color);
+}
+
+.completeMessage p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Countdown styling - fixed to appear in front of everything */
+.countdownContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.countdown {
+  font-size: 10rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.getReady {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 600px) {
+  .phaseInfo {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .countdown {
+    font-size: 6rem;
+  }
+  
+  .getReady {
+    font-size: 1.5rem;
+  }
+}

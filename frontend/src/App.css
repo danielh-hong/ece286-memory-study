@@ -1,42 +1,86 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  /* Primary Theme Colors */
+  --primary-color: #2196F3;
+  --primary-hover-color: #1976D2;
+  --secondary-color: #4CAF50;
+  --secondary-hover-color: #388E3C;
+  
+  /* Background Colors */
+  --bg-color: #f9f9f9;
+  --card-bg-color: #ffffff;
+  --header-bg-color: #f0f4f8;
+  --header-hover-color: #e1e7f0;
+  --highlight-bg-color: #f0f9ff;
+  --row-hover-color: #f5f9fc;
+  
+  /* Text Colors */
+  --text-color: #333333;
+  --text-muted-color: #666666;
+  --header-text-color: #1976D2;
+  --color-mode-text: #2196F3;
+  
+  /* Status Colors */
+  --success-color: #4CAF50;
+  --error-color: #f44336;
+  --warning-color: #ff9800;
+  
+  /* Border and Shadow */
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  /* Game Element Colors */
+  --cell-bg-color: #e0e0e0;
+  --lit-color: #ffffff;
+  --lit-shadow-color: rgba(255, 255, 255, 0.7);
+  --correct-color: #4CAF50;
+  --wrong-color: #f44336;
+  
+  /* Colors for colored mode */
+  --color-1: #FF6B6B;
+  --color-2: #4ECDC4;
+  --color-3: #FFD166;
+  --color-4: #06D6A0;
+  --color-5: #118AB2;
+  --color-6: #EF476F;
+  --color-7: #FFC43D;
+  --color-8: #1B9AAA;
+  --color-9: #6A4C93;
+  --color-10: #F15BB5;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input, select {
+  font-family: inherit;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
