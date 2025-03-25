@@ -79,6 +79,21 @@ a:hover {
   text-decoration: underline;
 }
 
+html, body {
+  /* Prevent default 300ms delay on older mobile devices */
+  touch-action: manipulation;
+
+  /* Remove gray or highlight overlay on tap in iOS/Android */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+*:focus {
+  outline: none; /* Remove focus outlines on tap for mobile */
+}
+
+
 @media (max-width: 600px) {
   body {
     font-size: 14px;

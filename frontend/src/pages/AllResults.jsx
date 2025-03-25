@@ -22,7 +22,7 @@ const AllResults = () => {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/results`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/results`);
         if (!res.ok) {
           throw new Error('Failed to fetch results');
         }

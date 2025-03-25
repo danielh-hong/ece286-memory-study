@@ -46,7 +46,7 @@ const CalibrationPage = () => {
 
   const calculateGridDimension = () => {
     const padding = 60;
-    const headerHeight = 150; 
+    const headerHeight = 150;
     const availableHeight = window.innerHeight - headerHeight - padding;
     const availableWidth = window.innerWidth - padding;
     const dimension = Math.min(availableHeight, availableWidth);
@@ -104,7 +104,7 @@ const CalibrationPage = () => {
     // show pattern after a short delay
     timerRef.current = setTimeout(() => {
       showPattern(newPattern, newGridSize);
-    }, 300); // reduced to minimize downtime
+    }, 300); // slight delay to prep
   };
 
   const showPattern = (p, gSize) => {
@@ -122,9 +122,17 @@ const CalibrationPage = () => {
     }, DISPLAY_TIME);
   };
 
-  const handleCellClick = (index) => {
+  const completeCalibrationLevel = () => {
+    setGameState('levelComplete');
+    setNotification(`Level ${level} complete!`);
+    timerRef.current = setTimeout(() => {
+      setLevel((prev) => prev + 1);
+      setGameState('ready');
+    }, 500); // 0.5s delay
+  };
+
+  const handleCellPointerDown = (index) => {
     if (gameState !== 'selecting') return;
-    // Block further clicks if we already hit 3 mistakes
     if (mistakes >= 3) return;
     if (selections.includes(index)) return;
 
@@ -136,32 +144,29 @@ const CalibrationPage = () => {
       const updated = [...grid];
       updated[index] = true;
       setGrid(updated);
-
-      const correctCount = newSelections.filter((sel) => pattern.includes(sel)).length;
-      if (correctCount === pattern.length) {
-        setGameState('levelComplete');
-        setNotification(`Level ${level} complete!`);
-        timerRef.current = setTimeout(() => {
-          setLevel((prev) => prev + 1);
-          setGameState('ready');
-        }, 300); // reduced downtime
-      }
     } else {
       const newMistakes = mistakes + 1;
       setMistakes(newMistakes);
       setNotification('Incorrect selection!');
       if (newMistakes >= 3) {
-        // Immediately block further clicks & handle life
         setLives((prev) => prev - 1);
         if (lives - 1 <= 0) {
           completeCalibration();
+          return;
         } else {
           timerRef.current = setTimeout(() => {
             setNotification(`${lives - 1} lives left. Retrying level ${level}...`);
             setGameState('ready');
-          }, 300); // reduced downtime
+          }, 300); // short delay
+          return;
         }
       }
+    }
+
+    // Check if we've selected all lit squares
+    const correctCount = newSelections.filter((sel) => pattern.includes(sel)).length;
+    if (correctCount === pattern.length) {
+      completeCalibrationLevel();
     }
   };
 
@@ -205,7 +210,7 @@ const CalibrationPage = () => {
           <ul>
             <li>A grid of squares will appear.</li>
             <li>Some squares will light up briefly.</li>
-            <li>Your task: click all those squares.</li>
+            <li>Your task: tap all those squares (multi-touch allowed).</li>
             <li>3 mistakes in one level will cost you a life. You have 3 total lives.</li>
             <li>The grid grows as you advance through levels.</li>
           </ul>
@@ -216,8 +221,8 @@ const CalibrationPage = () => {
       )}
 
       {gameState !== 'intro' && gameState !== 'complete' && (
-        <div 
-          ref={containerRef} 
+        <div
+          ref={containerRef}
           className={styles.gridContainer}
           style={{
             width: `${gridDimension}px`,
@@ -234,10 +239,18 @@ const CalibrationPage = () => {
                 className={`
                   ${styles.cell}
                   ${isLit ? styles.lit : ''}
-                  ${selections.includes(i) && pattern.includes(i) ? styles.correct : ''}
-                  ${selections.includes(i) && !pattern.includes(i) ? styles.wrong : ''}
+                  ${
+                    selections.includes(i) && pattern.includes(i)
+                      ? styles.correct
+                      : ''
+                  }
+                  ${
+                    selections.includes(i) && !pattern.includes(i)
+                      ? styles.wrong
+                      : ''
+                  }
                 `}
-                onClick={() => handleCellClick(i)}
+                onPointerDown={() => handleCellPointerDown(i)}
               />
             ))}
           </div>
