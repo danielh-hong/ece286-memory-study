@@ -1,3 +1,4 @@
+// src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/themeContext';
 import { ScoreProvider } from './context/scoreContext';
@@ -8,6 +9,7 @@ import StartTestPage from './pages/StartTestPage';
 import Test from './pages/Test';
 import TestResults from './pages/TestResults';
 import AllResults from './pages/AllResults';
+import TimeDistribution from './pages/TimeDistribution';
 import './App.css';
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
             <Route path="/test" element={<Test />} />
             <Route path="/results" element={<TestResults />} />
             <Route path="/all-results" element={<AllResults />} />
+            <Route path="/time-distribution" element={<TimeDistribution />} />
           </Routes>
         </Router>
       </ScoreProvider>

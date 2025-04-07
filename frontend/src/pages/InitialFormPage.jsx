@@ -29,7 +29,7 @@ const InitialFormPage = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/test-stats`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/test-stats`);
         if (response.ok) {
           const data = await response.json();
           setStats(data);

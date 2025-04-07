@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visual Memory Test Analysis</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; }
+    .chart-container { height: 400px; margin: 30px 0; }
+    .stats-box { background-color: #f5f5f5; padding: 15px; margin: 20px 0; border-radius: 8px; }
+    h1 { text-align: center; }
+    .significant { color: green; font-weight: bold; }
+    .not-significant { color: #555; }
+    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+    th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Visual Memory Test Analysis</h1>
+  
+  <div class="stats-box">
+    <h2>Color vs. Monochrome</h2>
+    <p>
+      <strong>Result:</strong> There is 
+      <span class="not-significant">
+        no significant
+      </span> 
+      difference between color and monochrome conditions.
+    </p>
+    <p>
+      <strong>Statistics:</strong> t(49) = -1.26, 
+      p = 0.2166 (not significant)
+    </p>
+    <p>
+      <strong>Mean difference:</strong> -13.36ms
+    </p>
+  </div>
+  
+  <div class="chart-container">
+    <canvas id="conditionChart"></canvas>
+  </div>
+  
+  <div class="stats-box">
+    <h2>Click Position Analysis</h2>
+    <p>
+      <strong>Result:</strong> First clicks are 
+      faster 
+      than last clicks by 183.03ms.
+    </p>
+    <p>
+      <strong>Statistical significance:</strong> t(1298) = -3.53, 
+      p = 0.0004 (significant)
+    </p>
+    
+    <table>
+      <tr>
+        <th>Comparison</th>
+        <th>Difference</th>
+        <th>t-statistic</th>
+        <th>p-value</th>
+        <th>Significance</th>
+      </tr>
+      <tr>
+        <td>First vs. Last</td>
+        <td>-183.03ms</td>
+        <td>t(1298) = -3.53</td>
+        <td>0.0004</td>
+        <td>Significant</td>
+      </tr>
+      <tr>
+        <td>First vs. Middle</td>
+        <td>101.65ms</td>
+        <td>t(1298) = 2.09</td>
+        <td>0.0364</td>
+        <td>Significant</td>
+      </tr>
+      <tr>
+        <td>Middle vs. Last</td>
+        <td>-284.68ms</td>
+        <td>t(1298) = -9.02</td>
+        <td>0.0000</td>
+        <td>Significant</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="chart-container">
+    <canvas id="positionChart"></canvas>
+  </div>
+  
+  <div class="stats-box">
+    <h2>Conclusions</h2>
+    <p><strong>Color vs. Monochrome:</strong> The statistical analysis supports your hypothesis that there's no correlation between color and response time. The paired t-test showed no significant difference between color and monochrome conditions (t(49) = -1.26, p = 0.2166).</p>
+    
+    <p><strong>Click Position:</strong> The analysis supports your hypothesis that first clicks are faster than last clicks. First clicks were 183.03ms faster than last clicks, with a statistically significant difference (p = 0.0004).</p>
+  </div>
+  
+  <script>
+    // Condition comparison chart
+    new Chart(document.getElementById('conditionChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Color', 'Monochrome'],
+        datasets: [{
+          label: 'Average Response Time (ms)',
+          data: [312.80, 327.16],
+          backgroundColor: ['rgba(54, 162, 235, 0.5)', 'rgba(75, 75, 75, 0.5)'],
+          borderColor: ['rgba(54, 162, 235, 1)', 'rgba(75, 75, 75, 1)'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Response Time by Condition'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Response Time (ms)'
+            }
+          }
+        }
+      }
+    });
+    
+    // Position comparison chart
+    new Chart(document.getElementById('positionChart'), {
+      type: 'bar',
+      data: {
+        labels: ['First Clicks', 'Middle Clicks', 'Last Clicks'],
+        datasets: [{
+          label: 'Average Response Time (ms)',
+          data: [
+            397.19, 
+            295.54, 
+            580.22
+          ],
+          backgroundColor: [
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(255, 99, 132, 0.5)'
+          ],
+          borderColor: [
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 99, 132, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Response Time by Click Position'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Response Time (ms)'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+  

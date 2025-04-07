@@ -1,0 +1,42 @@
+/* pages/TimeDistribution.module.css */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  color: var(--header-text-color);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.chartWrapper {
+  width: 100%;
+  max-width: 1300px;
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  border: 1px solid var(--border-color);
+}
+
+.message {
+  text-align: center;
+  color: var(--text-muted-color);
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.error {
+  text-align: center;
+  color: var(--error-color);
+  font-size: 1.2rem;
+  margin-top: 20px;
+}

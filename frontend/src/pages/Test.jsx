@@ -389,7 +389,7 @@ const saveResultsToDatabase = async (results) => {
   try {
     // local backup
     localStorage.setItem('memoryTestBackupResults', JSON.stringify(results));
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/participants`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/participants`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(results),
@@ -401,7 +401,7 @@ const saveResultsToDatabase = async (results) => {
       // Attempt one retry
       setTimeout(async () => {
         try {
-          const retryResp = await fetch(`${import.meta.env.VITE_API_URL}/api/participants`, {
+          const retryResp = await fetch(`${import.meta.env.VITE_API_URL}/participants`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(results),

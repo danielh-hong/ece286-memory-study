@@ -1,0 +1,85 @@
+{
+  "colorVsMonochrome": {
+    "colorMean": 312.80439072520966,
+    "monochromeMean": 327.1617063492063,
+    "colorSD": 534.1391509603652,
+    "monochromeSD": 498.79345831507857,
+    "rawDifference": -14.35731562399667,
+    "overallCohensD": 0.02778287218556062,
+    "pairedTest": {
+      "meanDifference": -13.360262221905087,
+      "sdDifference": 76.02835873136067,
+      "tStat": -1.2425800284496638,
+      "df": 49,
+      "pValue": 0.2,
+      "cohensD": 0.17572735285674607,
+      "significant": false
+    }
+  },
+  "clickPositions": {
+    "first": {
+      "mean": 397.1892307692308,
+      "sd": 1148.2013426008564
+    },
+    "middle": {
+      "mean": 223.60615384615386,
+      "sd": 117.28486632819222
+    },
+    "last": {
+      "mean": 580.2169230769231,
+      "sd": 656.1122860582309
+    },
+    "comparisons": {
+      "firstVsMiddle": {
+        "difference": 173.58307692307693,
+        "cohensD": 0.21269161531313757
+      },
+      "firstVsLast": {
+        "difference": -183.0276923076923,
+        "cohensD": 0.19572917428123768
+      },
+      "middleVsLast": {
+        "difference": -356.6107692307692,
+        "cohensD": 0.7566605217577678
+      }
+    }
+  },
+  "specialLastClicks": {
+    "specialMean": 599.73,
+    "regularMean": 576.6690909090909,
+    "difference": 23.06090909090915,
+    "cohensD": 0.03522766918241967
+  },
+  "vizData": {
+    "positionByCondition": {
+      "color": {
+        "first": {
+          "mean": 425.35692307692307,
+          "sd": 1570.266446090885
+        },
+        "middle": {
+          "mean": 220.46769230769232,
+          "sd": 101.536846543892
+        },
+        "last": {
+          "mean": 559.0215384615385,
+          "sd": 568.9802087328914
+        }
+      },
+      "monochrome": {
+        "first": {
+          "mean": 369.02153846153846,
+          "sd": 416.5011776887844
+        },
+        "middle": {
+          "mean": 226.74461538461537,
+          "sd": 131.24192865337344
+        },
+        "last": {
+          "mean": 601.4123076923076,
+          "sd": 733.2500094723921
+        }
+      }
+    }
+  }
+}
